@@ -1,0 +1,254 @@
+﻿html, body {
+    height: 100%;
+    width: 100%;
+    margin: 0;
+}
+
+body {
+    min-height:100vh;
+}
+
+.wrapper {
+    position: relative;
+    left: 0;
+    right: 0;
+    margin: auto;
+    width: 100%;
+    height: 100%;
+    display: table;
+    min-height: 700px;
+    background-image: linear-gradient(160deg, #000428 0%, #004e92 100%);
+}
+
+.container {
+    position: relative;
+    max-width: 1200px;
+    height: 100%;
+    margin: auto;
+    left: 0;
+    right: 0;
+}
+
+.login-form-container {
+    position: absolute;
+    margin: auto auto;
+    top: 25%;
+    left: 0;
+    right: 0;
+    height: 300px;
+    width: 500px;
+}
+
+.login-form {
+    position: relative;
+    margin: auto auto;
+    left: 0;
+    right: 0;
+    height: 300px;
+    width: 500px;
+}
+
+    .login-form div {
+        position: relative;
+        display: block;
+        background-color: rgba(255,255,255, .2);
+        width: 300px;
+        height: 40px;
+        margin: auto;
+        left: 0;
+        right: 0;
+        margin-bottom: 20px;
+        border-radius: 5px;
+    }
+
+    .login-form input {
+        outline: none;
+        border: none;
+        height: 100%;
+        float: right;
+        width: 250px;
+        padding: 0;
+        background-color: transparent;
+        color: whitesmoke;
+        font-size: 20px;
+        font-family: 'Courier New';
+    }
+
+        .login-form input::placeholder {
+            color: rgba(255,255,255, .5);
+        }
+
+        .login-form input:focus, textarea:focus {
+            outline: none;
+            background-color: transparent;
+        }
+input:-webkit-autofill {
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: white !important;
+}
+
+    .login-form img {
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        left: 5px;
+        margin: auto;
+        float: left;
+        max-height: 32px;
+        opacity: .6
+    }
+
+.signIn {
+    position: relative;
+    width: 300px;
+    height: 40px;
+    margin: auto;
+    left: 0;
+    right: 0;
+    display: block;
+    background-color: rgba(255,255,255, .4);
+    border-radius: 20px;
+    border: none;
+    outline: none;
+    color: rgba(255,255,255, .7);
+    font-size: 20px;
+    font-family: 'Courier New';
+    font-weight: 600;
+    margin-top: 30px;
+}
+
+.login-page-header {
+    position: relative;
+    text-align: center;
+    font-size: 32px;
+    color: rgba(255,255,255, .7);
+    font-family: 'Courier New';
+    margin-bottom: 20px;
+    font-weight: 600;
+    margin-top: 15px;
+}
+
+.header-container {
+    position: relative;
+    margin-bottom: 10px;
+    height: 150px;
+    width: 100%;
+}
+
+    .header-container img {
+        position: relative;
+        display: block;
+        margin: auto;
+        left: 0;
+        right: 0;
+        max-height: 80px;
+    }
+
+.logged-container {
+    position: relative;
+    height: 100%;
+    margin: auto;
+    left: 0;
+    right: 0;
+}
+
+.top-menu-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 40px;
+    background-color: rgba(0,0,0, .3);
+    border-bottom: 1px solid rgba(255,255,255, .5);
+    z-index: 1;
+    -webkit-user-select: none;
+    -webkit-touch-callout: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+.top-menu{
+    position:relative;
+    width:auto;
+    max-width:1200px;
+    height: 100%;
+    margin:auto;
+    left:0;
+    right:0;
+}
+.menu {
+    position: relative;
+    font-family: Cinzel;
+    color: rgba(255,255,255, .8);
+    font-size: 16px;
+    height: 100%;
+    margin: 0;
+    margin: auto;
+    left: 0;
+    right: 0;
+    width: -moz-fit-content;
+    width: fit-content;
+    padding: 0;
+    list-style: none;
+}
+    .menu li {
+        display: inline-block;
+        height: 100%;
+        padding: 0 10px 0 10px;
+        cursor:pointer;
+    }
+li a:hover {
+    color: white;
+}
+li a {
+    display: block;
+    line-height: 2em;
+    cursor: pointer;
+    height: 100%;
+    line-height: 40px;
+}
+.logout {
+    position: absolute;
+    right: 15px;
+    top: 0;
+    color: rgba(255,255,255, .8);
+    font-size: 16px;
+    cursor: pointer;
+    height: 100%;
+}
+    .logout a {
+        line-height: 40px;
+        height: 100%;
+        position: relative;
+        display: block;
+        float: left;
+        padding: 0 0 0 10px;
+        text-decoration: none;
+        -webkit-touch-callout: none; 
+        -webkit-user-select: none; 
+        -moz-user-select: none; 
+        -ms-user-select: none; 
+        user-select: none; 
+    }
+    .logout a img {
+        display: block;
+        float: left;
+        max-height: 25px;
+        margin: auto;
+        max-width: 25px;
+        position: relative;
+        top: 50%;
+        transform: translateY(-50%);
+        opacity: .8
+    }
+        .logout a span {
+            font-size:16px;
+            font-family: Cinzel;
+            padding: 0 0 0 10px;
+            color: rgba(255,255,255, .8);
+        }
+
+@font-face {
+    font-family: 'Cinzel';
+    src: url('../fonts/Cinzel-Medium.ttf');
+}

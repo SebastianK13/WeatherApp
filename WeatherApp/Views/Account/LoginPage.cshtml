@@ -1,0 +1,26 @@
+﻿@model LoginVM
+@{
+    Layout = "_UnLoggedLayout";
+}
+<body>
+    <div class="login-form-container">
+        <div class="header-container">
+            <img src="~/images/storm.png" />
+            <p class="login-page-header">Weather Application</p>
+        </div>
+        <div class="login-form">
+            @using (Html.BeginForm("LoginPage", "Account", new { ReturnUrl = Context.Request.Query["ReturnUrl"] }, FormMethod.Post))
+            {
+                <div class="username-container">
+                    <img src="~/images/user.png" />
+                    <input asp-for="Username" id="username" placeholder="Username" class="username-input" />
+                </div>
+                <div class="password-container">
+                    <img src="~/images/padlock.png" />
+                    <input asp-for="Password" type="password" placeholder="Password" id="password" class="password-input" />
+                </div>
+                <button type="submit" class="signIn">Log In</button>
+            }
+        </div>
+    </div>
+</body>
