@@ -14,5 +14,6 @@ namespace WeatherApp.Context
 
         public DbSet<Readings> WeatherReadings { get; set; }
         public DbSet<VoivodeshipTemp> VoivodeshipTemps { get; set; }
+        public DbSet<WeatherApiKey> WeatherApiKeys { get; set; }
     }
 }

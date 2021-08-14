@@ -3,15 +3,17 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using WeatherApp.Context;
 
 namespace WeatherApp.Migrations.WeatherReadingsDb
 {
     [DbContext(typeof(WeatherReadingsDbContext))]
-    partial class WeatherReadingsDbContextModelSnapshot : ModelSnapshot
+    [Migration("20210813160219_WeatherApiKey_table_added")]
+    partial class WeatherApiKey_table_added
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -53,23 +55,6 @@ namespace WeatherApp.Migrations.WeatherReadingsDb
                     b.HasIndex("ReadingsId");
 
                     b.ToTable("VoivodeshipTemps");
-                });
-
-            modelBuilder.Entity("WeatherApp.Models.WeatherApiKey", b =>
-                {
-                    b.Property<string>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("nvarchar(450)");
-
-                    b.Property<string>("ApiKey")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Username")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("WeatherApiKeys");
                 });
 
             modelBuilder.Entity("WeatherApp.Models.VoivodeshipTemp", b =>

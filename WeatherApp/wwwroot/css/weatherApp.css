@@ -23,10 +23,11 @@ body {
 .container {
     position: relative;
     max-width: 1200px;
-    height: 100%;
+    height: calc(100% - 50px);
     margin: auto;
     left: 0;
     right: 0;
+    padding-top: 50px;
 }
 
 .login-form-container {
@@ -194,11 +195,12 @@ input:-webkit-autofill {
     .menu li {
         display: inline-block;
         height: 100%;
-        padding: 0 10px 0 10px;
+        padding: 0 20px 0 20px;
         cursor:pointer;
     }
 li a:hover {
     color: white;
+    transform: scale(1.1);
 }
 li a {
     display: block;
@@ -206,6 +208,13 @@ li a {
     cursor: pointer;
     height: 100%;
     line-height: 40px;
+    text-decoration: none;
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    color: rgba(255,255,255, .8);
 }
 .logout {
     position: absolute;
@@ -251,4 +260,214 @@ li a {
 @font-face {
     font-family: 'Cinzel';
     src: url('../fonts/Cinzel-Medium.ttf');
+}
+
+.access-denied {
+    position: absolute;
+    height: 260px;
+    width: 600px;
+    margin: auto;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    border-radius: 5px;
+}
+.access-denied-header {
+    position: relative;
+    height: 130px;
+    width: fit-content;
+    margin: auto;
+}
+
+    .access-denied-header p {
+        color: rgba(251, 24, 56, .9);
+        text-align: center;
+        font-size: 40px;
+        font-family: Cinzel;
+        display: block;
+        margin: 10px 0 10px 0;
+    }
+
+    .access-denied-header span {
+        color: rgba(251, 24, 56, .9);
+        text-align: center;
+        font-size: 22px;
+        font-family: Cinzel;
+        display: block;
+    }
+
+.access-denied img {
+    position: relative;
+    height: 103px;
+    display: block;
+    margin: auto;
+}
+
+.accounts-menu {
+    position: relative;
+    width: auto;
+    max-width: 1200px;
+    height: 40px;
+    margin: auto;
+    left: 0;
+    right: 0;
+    margin-top: 20px;
+}
+
+.menu li input {
+    background-color: transparent;
+    display: inline-block;
+    height: 100%;
+    padding: 0 20px 0 20px;
+    cursor: pointer;
+    border: none;
+    outline: none;
+    text-decoration: none;
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    color: rgba(255,255,255, .8);
+    font-size: 16px;
+    font-family: Cinzel;
+}
+
+    .menu li input:hover {
+        transform: scale(1.1);
+        color: white;
+    }
+
+.change-password {
+    position: relative;
+    height: 300px;
+    width: 600px;
+    left: 0;
+    right: 0;
+    margin: auto;
+    display: none;
+}
+.change-permission {
+    position: relative;
+    height: 300px;
+    width: 600px;
+    left: 0;
+    right: 0;
+    margin: auto;
+    display: none;
+}
+.api-key {
+    position: relative;
+    height: 300px;
+    width: 600px;
+    left: 0;
+    right: 0;
+    margin: auto;
+    display: none;
+}
+
+.password-changing-form {
+    position: relative;
+    margin: auto auto;
+    left: 0;
+    right: 0;
+    height: 300px;
+    width: 500px;
+    margin-top: 20px;
+}
+
+    .password-changing-form div {
+        position: relative;
+        display: block;
+        background-color: rgba(255,255,255, .2);
+        width: 300px;
+        height: 40px;
+        margin: auto;
+        left: 0;
+        right: 0;
+        margin-bottom: 20px;
+        border-radius: 5px;
+    }
+
+    .password-changing-form input {
+        outline: none;
+        border: none;
+        height: 100%;
+        float: right;
+        width: calc(100% - 20px);
+        padding: 0 10px 0 10px;
+        background-color: transparent;
+        color: whitesmoke;
+        font-size: 20px;
+        font-family: 'Courier New';
+        text-align: center;
+    }
+.accounts-content{
+    padding-top:50px;
+}
+
+.accounts-img {
+    position: relative;
+    display: block;
+    height:80px;
+    left: 0;
+    right: 0;
+    margin: auto;
+    opacity: .9;
+}
+
+.readonly-api-key {
+    position: relative;
+    display: block;
+    background-color: rgba(255,255,255, .2);
+    width: 300px;
+    height: 40px;
+    margin: auto;
+    left: 0;
+    right: 0;
+    margin-bottom: 20px;
+    border-radius: 5px;
+}
+.error-section {
+    background-color: transparent!important;
+    text-align: center;
+    color: red;
+    font-size: 16px;
+    font-family: 'Cinzel';
+    height: auto!important;
+    margin-bottom: 0!important;
+}
+
+.error-section ul{
+    list-style:none;
+    padding:0;
+}
+
+.results-container {
+    margin-top: -20px !important;
+    position: absolute !important;
+    z-index: 1;
+    background-color: #344F76 !important;
+    height: auto !important;
+}
+
+.results-container a {
+    display: none;
+    color: black;
+    padding: 6px 8px;
+    text-decoration: none;
+    background-color: white;
+    width: calc(100% - 18px);
+    margin: auto;
+    border-left: 1px solid rgba(184,184,184, .8);
+    border-right: 1px solid rgba(184,184,184, .8);
+}
+
+#registerForm{
+    display:none;
+}
+
+.less-margin{
+    margin-top: 10px!important;
 }

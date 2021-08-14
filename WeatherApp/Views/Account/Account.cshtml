@@ -1,0 +1,39 @@
+﻿@{
+    Layout = "_UserLayout";
+}
+<body>
+    <div class="accounts-menu">
+        <ul class="menu">
+            <li>
+                <input id="changePsw" type="button" value="Change Password" />
+            </li>
+        </ul>
+    </div>
+    <div class="accounts-content">
+        <div id="passwordContent" class="change-password">
+            <img class="accounts-img" src="~/images/lock.png" />
+            @using (Html.BeginForm("ChangePassword", "Account", FormMethod.Post))
+            {
+                @Html.AntiForgeryToken()
+                <div class="password-changing-form">
+                    <div class="password-container">
+                        <input name="CurrentPassword" type="password" placeholder="Password" class="username-input" required />
+                    </div>
+                    <div class="password-container">
+                        <input name="NewPassword" type="password" placeholder="New Password" class="password-input" required />
+                    </div>
+                    <div class="password-container">
+                        <input name="ConfirmedPassword" type="password" placeholder="Confirm New Password" class="password-input" required />
+                    </div>
+                    <div id="error" class="error-section"></div>
+                    <button type="submit" class="signIn">Change Password</button>
+                </div>
+            }
+        </div>
+    </div>
+    <script type="text/javascript">
+        var errorMessage = @Json.Serialize(ViewBag.ErrorMessage);
+        var feedback = @Json.Serialize(ViewBag.Feedback);
+    </script>
+    <script type="text/javascript" src="../Scripts/Account.js"></script>
+</body>

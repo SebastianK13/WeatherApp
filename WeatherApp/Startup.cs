@@ -46,6 +46,7 @@ namespace WeatherApp
             .AddDefaultTokenProviders();
 
             services.AddTransient<IIdentityService, IdentityService>();
+            services.AddTransient<IReadingsService, ReadingsService>();
 
             services.ConfigureApplicationCookie(options => 
             {

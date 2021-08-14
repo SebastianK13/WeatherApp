@@ -24,4 +24,13 @@ namespace WeatherApp.Models
         public double Temperature { get; set; }
         public DateTime ReadingDate { get; set; }
     }
+
+    public class WeatherApiKey
+    {
+        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
+        [Key]
+        public string Id { get; set; }
+        public string Username { get; set; }
+        public string ApiKey { get; set; }
+    }
 }

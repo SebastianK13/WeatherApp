@@ -8,9 +8,10 @@
             <img src="~/images/storm.png" />
             <p class="login-page-header">Weather Application</p>
         </div>
-        <div class="login-form">
-            @using (Html.BeginForm("LoginPage", "Account", new { ReturnUrl = Context.Request.Query["ReturnUrl"] }, FormMethod.Post))
+        <div id="loginForm" class="login-form">
+            @using (Html.BeginForm("LoginPage", "Account", new { ReturnUrl = Context.Request.Query["ReturnUrl"], RegisterForm = false}, FormMethod.Post))
             {
+                @Html.AntiForgeryToken()
                 <div class="username-container">
                     <img src="~/images/user.png" />
                     <input asp-for="Username" id="username" placeholder="Username" class="username-input" />
@@ -19,8 +20,31 @@
                     <img src="~/images/padlock.png" />
                     <input asp-for="Password" type="password" placeholder="Password" id="password" class="password-input" />
                 </div>
+                <div class="error-section" asp-validation-summary="All"></div>
                 <button type="submit" class="signIn">Log In</button>
+                <button id="register" type="button" class="signIn less-margin">Create New Account</button>
+            }
+        </div>
+        <div id="registerForm" class="login-form">
+            @using (Html.BeginForm("LoginPage", "Account", new { ReturnUrl = Context.Request.Query["ReturnUrl"], RegisterForm = true}, FormMethod.Post))
+            {
+                @Html.AntiForgeryToken()
+                <div class="username-container">
+                    <img src="~/images/user.png" />
+                    <input asp-for="Username" id="registerUsername" placeholder="Username" class="username-input" />
+                </div>
+                <div class="password-container">
+                    <img src="~/images/padlock.png" />
+                    <input asp-for="Password" type="password" placeholder="Password" id="registerPassword" class="password-input" />
+                </div>
+                <div class="error-section" asp-validation-summary="All"></div>
+                <button type="submit" class="signIn">Register</button>
+                <button id="login" type="button" class="signIn less-margin">Login Form</button>
             }
         </div>
     </div>
+    <script type="text/javascript">
+        var activeForm = @Json.Serialize(ViewBag.ActiveForm);
+    </script>
+    <script type="text/javascript" src="~/scripts/LoginPage.js"></script>
 </body>

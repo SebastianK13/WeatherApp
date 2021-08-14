@@ -3,15 +3,17 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using WeatherApp.Context;
 
 namespace WeatherApp.Migrations.WeatherReadingsDb
 {
     [DbContext(typeof(WeatherReadingsDbContext))]
-    partial class WeatherReadingsDbContextModelSnapshot : ModelSnapshot
+    [Migration("20210813160459_WeatherApiKey_was_added")]
+    partial class WeatherApiKey_was_added
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
