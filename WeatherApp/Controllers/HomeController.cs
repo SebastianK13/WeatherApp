@@ -25,12 +25,6 @@ namespace WeatherApp.Controllers
         {
             return View();
         }
-        [HttpPost]
-        [Authorize(Roles = "Administrator")]
-        public async Task RefreshData()
-        {
-            
-        }
         [Authorize(Roles = "Administrator")]
         public IActionResult Refresh()
         {
