@@ -1,0 +1,21 @@
+﻿@{
+    Layout = "_AdminLayout";
+}
+
+<body>
+    <div class="refresh-container">
+        <div class="refresh-content">
+            @using (Html.BeginForm("RefreshData", "Refresh", FormMethod.Post))
+            {
+                <img class="refresh-img" src="/images/refresh-database.png" />
+                <button class="refresh-button" type="submit">Refresh data</button>
+            }
+        </div>
+        <div id="error" class="error-section"></div>
+    </div>
+    <script type="text/javascript">
+        var error = @Json.Serialize(@ViewBag.ApiError);
+        var feedback = @Json.Serialize(@ViewBag.Feedback);
+    </script>
+    <script type="text/javascript" src="~/scripts/RefreshPage.js"></script>
+</body>

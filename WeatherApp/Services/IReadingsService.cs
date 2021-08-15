@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using WeatherApp.Models;
 
 namespace WeatherApp.Services
 {
@@ -9,5 +10,8 @@ namespace WeatherApp.Services
     {
         Task<string> GetUserApiKey(string username);
         Task ChangeUserApiKey(string username, string apiKey);
+        Task InsertVoivodeshipData(List<Voivodeship> voivodeships);
+        Task<List<Voivodeship>> GetVoivodeshipsAsync();
+        Task UpdateWeatherReadingsAsync(List<WeatherReadings> readings);
     }
 }

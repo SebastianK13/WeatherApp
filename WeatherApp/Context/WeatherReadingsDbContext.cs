@@ -12,8 +12,11 @@ namespace WeatherApp.Context
         public WeatherReadingsDbContext(DbContextOptions<WeatherReadingsDbContext> options)
             :base(options) { }
 
-        public DbSet<Readings> WeatherReadings { get; set; }
-        public DbSet<VoivodeshipTemp> VoivodeshipTemps { get; set; }
+        public DbSet<WeatherReadings> WeatherReadings { get; set; }
         public DbSet<WeatherApiKey> WeatherApiKeys { get; set; }
+        public DbSet<Voivodeship> Voivodeships { get; set; }
+        public DbSet<Weather> Weathers { get; set; }
+        public DbSet<Main> Mains { get; set; }
+        public DbSet<Wind> Winds { get; set; }
     }
 }

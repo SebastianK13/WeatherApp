@@ -471,3 +471,44 @@ li a {
 .less-margin{
     margin-top: 10px!important;
 }
+
+.refresh-container {
+    padding-top: 50px;
+}
+.refresh-img {
+    position: relative;
+    display: block;
+    height: 80px;
+    left: 0;
+    right: 0;
+    margin: auto;
+    opacity: .9;
+}
+.refresh-content {
+    position: relative;
+    height: 170px;
+    width: 600px;
+    left: 0;
+    right: 0;
+    margin: auto;
+}
+.refresh-button {
+    position: relative;
+    width: 120px;
+    height: 30px;
+    left: -5px;
+    right: 0;
+    margin: auto;
+    display: block;
+    margin-top: 20px;
+}
+
+.map-centering {
+    position: relative;
+    left:0;
+    right: 0;
+    margin: auto;
+    display: block;
+    margin-top: 20px;
+    opacity: .7;
+}

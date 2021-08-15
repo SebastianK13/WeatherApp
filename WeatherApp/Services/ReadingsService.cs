@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using WeatherApp.Context;
+using WeatherApp.Models;
 
 namespace WeatherApp.Services
 {
@@ -30,5 +31,18 @@ namespace WeatherApp.Services
                 .Select(k => k.ApiKey)
                 .FirstOrDefaultAsync();
 
+        public async Task InsertVoivodeshipData(List<Voivodeship> voivodeships)
+        {
+            await _context.Voivodeships.AddRangeAsync(voivodeships);
+            await _context.SaveChangesAsync();
+        }
+        public async Task<List<Voivodeship>> GetVoivodeshipsAsync() =>
+            await _context.Voivodeships.ToListAsync();
+
+        public async Task UpdateWeatherReadingsAsync(List<WeatherReadings> readings)
+        {
+            await _context.WeatherReadings.AddRangeAsync(readings);
+            await _context.SaveChangesAsync();
+        }
     }
 }

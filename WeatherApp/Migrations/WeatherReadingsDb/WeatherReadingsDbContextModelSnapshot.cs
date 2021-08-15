@@ -19,40 +19,72 @@ namespace WeatherApp.Migrations.WeatherReadingsDb
                 .HasAnnotation("ProductVersion", "5.0.9")
                 .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-            modelBuilder.Entity("WeatherApp.Models.Readings", b =>
+            modelBuilder.Entity("WeatherApp.Models.Main", b =>
                 {
                     b.Property<string>("Id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("nvarchar(450)");
+
+                    b.Property<double>("Feels_like")
+                        .HasColumnType("float");
+
+                    b.Property<int>("Humidity")
+                        .HasColumnType("int");
+
+                    b.Property<int>("Pressure")
+                        .HasColumnType("int");
+
+                    b.Property<double>("Temp")
+                        .HasColumnType("float");
+
+                    b.Property<double>("Temp_max")
+                        .HasColumnType("float");
+
+                    b.Property<double>("Temp_min")
+                        .HasColumnType("float");
 
                     b.HasKey("Id");
 
-                    b.ToTable("WeatherReadings");
+                    b.ToTable("Mains");
                 });
 
-            modelBuilder.Entity("WeatherApp.Models.VoivodeshipTemp", b =>
+            modelBuilder.Entity("WeatherApp.Models.Voivodeship", b =>
                 {
                     b.Property<string>("Id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("nvarchar(450)");
 
-                    b.Property<DateTime>("ReadingDate")
-                        .HasColumnType("datetime2");
+                    b.Property<string>("CityName")
+                        .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("ReadingsId")
-                        .HasColumnType("nvarchar(450)");
-
-                    b.Property<double>("Temperature")
-                        .HasColumnType("float");
-
-                    b.Property<string>("Voivodeship")
+                    b.Property<string>("VoivodeshipName")
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("Id");
 
-                    b.HasIndex("ReadingsId");
+                    b.ToTable("Voivodeships");
+                });
 
-                    b.ToTable("VoivodeshipTemps");
+            modelBuilder.Entity("WeatherApp.Models.Weather", b =>
+                {
+                    b.Property<string>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("nvarchar(450)");
+
+                    b.Property<string>("Description")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Main")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("WeatherReadingsId")
+                        .HasColumnType("nvarchar(450)");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("WeatherReadingsId");
+
+                    b.ToTable("Weathers");
                 });
 
             modelBuilder.Entity("WeatherApp.Models.WeatherApiKey", b =>
@@ -72,16 +104,83 @@ namespace WeatherApp.Migrations.WeatherReadingsDb
                     b.ToTable("WeatherApiKeys");
                 });
 
-            modelBuilder.Entity("WeatherApp.Models.VoivodeshipTemp", b =>
+            modelBuilder.Entity("WeatherApp.Models.WeatherReadings", b =>
                 {
-                    b.HasOne("WeatherApp.Models.Readings", null)
-                        .WithMany("Temperatures")
-                        .HasForeignKey("ReadingsId");
+                    b.Property<string>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("nvarchar(450)");
+
+                    b.Property<DateTime>("Date")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("MainId")
+                        .HasColumnType("nvarchar(450)");
+
+                    b.Property<string>("VoivodeshipId")
+                        .HasColumnType("nvarchar(450)");
+
+                    b.Property<string>("WindId")
+                        .HasColumnType("nvarchar(450)");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("MainId");
+
+                    b.HasIndex("VoivodeshipId");
+
+                    b.HasIndex("WindId");
+
+                    b.ToTable("WeatherReadings");
                 });
 
-            modelBuilder.Entity("WeatherApp.Models.Readings", b =>
+            modelBuilder.Entity("WeatherApp.Models.Wind", b =>
                 {
-                    b.Navigation("Temperatures");
+                    b.Property<string>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("nvarchar(450)");
+
+                    b.Property<int>("Deg")
+                        .HasColumnType("int");
+
+                    b.Property<double>("Speed")
+                        .HasColumnType("float");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Winds");
+                });
+
+            modelBuilder.Entity("WeatherApp.Models.Weather", b =>
+                {
+                    b.HasOne("WeatherApp.Models.WeatherReadings", null)
+                        .WithMany("Weathers")
+                        .HasForeignKey("WeatherReadingsId");
+                });
+
+            modelBuilder.Entity("WeatherApp.Models.WeatherReadings", b =>
+                {
+                    b.HasOne("WeatherApp.Models.Main", "Main")
+                        .WithMany()
+                        .HasForeignKey("MainId");
+
+                    b.HasOne("WeatherApp.Models.Voivodeship", "Voivodeship")
+                        .WithMany()
+                        .HasForeignKey("VoivodeshipId");
+
+                    b.HasOne("WeatherApp.Models.Wind", "Wind")
+                        .WithMany()
+                        .HasForeignKey("WindId");
+
+                    b.Navigation("Main");
+
+                    b.Navigation("Voivodeship");
+
+                    b.Navigation("Wind");
+                });
+
+            modelBuilder.Entity("WeatherApp.Models.WeatherReadings", b =>
+                {
+                    b.Navigation("Weathers");
                 });
 #pragma warning restore 612, 618
         }
