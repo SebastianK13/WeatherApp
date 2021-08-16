@@ -196,9 +196,9 @@ namespace WeatherApp.Controllers
         [Authorize(Roles = "Administrator")]
         public async Task<IActionResult> ChangePermission([FromBody]FoundUser user)
         {
-            string message = await _identityService.ChangePermissionAsync(user);
+            FeedbackVM feedback = await _identityService.ChangePermissionAsync(user);
 
-            return Json(message);
+            return Json(feedback);
         }
         public IActionResult Account(string errorMessage = null, string feedback = null) 
         {

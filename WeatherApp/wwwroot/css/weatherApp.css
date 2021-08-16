@@ -475,10 +475,10 @@ li a {
 .refresh-container {
     padding-top: 50px;
 }
-.refresh-img {
+.header-img {
     position: relative;
     display: block;
-    height: 80px;
+    height: 90px;
     left: 0;
     right: 0;
     margin: auto;
@@ -503,12 +503,144 @@ li a {
     margin-top: 20px;
 }
 
-.map-centering {
+.map-container {
     position: relative;
-    left:0;
+    width: 700px;
+    height: 650px;
+    left: 0;
     right: 0;
     margin: auto;
     display: block;
     margin-top: 20px;
+}
+
+.map-centering {
+    position: absolute;
+    top:0;
+    left:0;
     opacity: .7;
+    z-index: 1;
+}
+.map-container li{
+    position:absolute;
+    top:0;
+    left:0;
+    z-index: 2;
+    display:none;
+    animation: fade 1s;
+}
+@keyframes fade{
+    from {opacity:0;}
+    to {opacity:1}
+}
+#voivodeships{
+    list-style:none;
+}
+
+.weather-readings{
+    position: relative;
+    width: 80%;
+    height: 200px;
+    margin:auto;
+    left:0;
+    right:0;
+    border-radius: 5px;
+    display: none;
+}
+
+.side-container {
+    position: relative;
+    width: 30%;
+    height: 100%;
+    background-color: rgba(255,255,255, .4);
+    float:left;
+}
+
+.left-radius{
+    border-bottom-left-radius: 5px;
+    border-top-left-radius: 5px;
+}
+
+.right-radius {
+    border-bottom-right-radius: 5px;
+    border-top-right-radius: 5px;
+}
+
+.middle-container {
+    position: relative;
+    width: calc(40% - 4px);
+    margin: 0 2px 0 2px;
+    height: 100%;
+    background-color: rgba(255,255,255, .4);
+    float:left;
+}
+.weather-readings p {
+    text-align: center;
+    color: #004e92;
+    font-family: Cinzel;
+    border-bottom: 2px solid #004e92;
+}
+.weather-readings ul {
+    list-style: none;
+    color: #004e92;
+    text-align:center;
+    padding:0;
+}
+.weather-readings li{
+    height:25px;
+}
+.middle-container button {
+    width: 100%;
+    position: absolute;
+    height: 30px;
+    bottom: 0;
+    left: 0;
+    opacity: .5;
+    display: none;
+    color: #004e92;
+    font-family: Cinzel;
+}
+
+.about-container{
+    padding-top: 50px;
+    width: 70%;
+    margin:auto;
+    left:0;
+    right:0;
+    padding-bottom: 10px;
+}
+
+.about-header{
+    position: relative;
+    font-family:Cinzel;
+    font-size: 25px;
+    color: white;
+    text-align:center;
+}
+
+.about-text-content {
+    position: relative;
+    text-align: justify;
+    font-family: Cinzel;
+    font-size: 16px;
+    color: whitesmoke;
+}
+
+.about-small-header {
+    position: relative;
+    text-align: center;
+    font-family: Cinzel;
+    font-size: 18px;
+    color: whitesmoke;
+    margin-bottom: 10px;
+}
+
+.container-footer {
+    position: relative;
+    text-align: center;
+    font-family: Cinzel;
+    font-size: 20px;
+    color: whitesmoke;
+    padding-top:20px;padding-bottom:10px;
+    border-bottom: 1px solid green;
 }

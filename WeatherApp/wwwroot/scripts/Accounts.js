@@ -54,7 +54,12 @@ function postChangePermission() {
     fetch(postMethod, params)
         .then(response => response.json())
         .then(function (data) {
-            permissionLog.innerText = data;
+            debugger;
+            if (data.error)
+                permissionLog.style.color = "red";
+            else
+                permissionLog.style.color = "green";
+            permissionLog.innerText = data.message;
         }).catch(function () {
             console.log("data-error")
         });

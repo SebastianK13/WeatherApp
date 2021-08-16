@@ -19,6 +19,7 @@ namespace WeatherApp.Models
             Wind = wind;
             Date = ConvertSecondsToLocalTime(dt);
         }
+        [JsonIgnore]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         [Key]
         public string Id { get; set; }

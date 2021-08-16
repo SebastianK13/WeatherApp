@@ -16,7 +16,7 @@ namespace WeatherApp.Services
         Task<bool> CheckIsAdminAsync(string login);
         Task<bool> ChangePasswordAsync(ChangePasswordVM passwordVM, string username);
         Task<List<FoundUser>> FindUsersByPhrase(string searchPhrase, string username);
-        Task<string> ChangePermissionAsync(FoundUser user);
+        Task<FeedbackVM> ChangePermissionAsync(FoundUser user);
         Task<string> RegisterAsync(LoginVM loginData);
     }
 }

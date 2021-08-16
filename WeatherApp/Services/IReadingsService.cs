@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.AspNetCore.Mvc;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -13,5 +14,6 @@ namespace WeatherApp.Services
         Task InsertVoivodeshipData(List<Voivodeship> voivodeships);
         Task<List<Voivodeship>> GetVoivodeshipsAsync();
         Task UpdateWeatherReadingsAsync(List<WeatherReadings> readings);
+        Task<List<WeatherReadings>> GetWeatherAsync(string voivodeship);
     }
 }

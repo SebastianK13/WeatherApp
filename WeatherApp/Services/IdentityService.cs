@@ -128,19 +128,25 @@ namespace WeatherApp.Services
             return foundUsers;
         }
 
-        public async Task<string> ChangePermissionAsync(FoundUser user)
+        public async Task<FeedbackVM> ChangePermissionAsync(FoundUser user)
         {
-            string message = "";
+            FeedbackVM feedback = new FeedbackVM();
             IdentityUser identity = await _userManager.FindByNameAsync(user.Username);
             var r = await _userManager.AddToRoleAsync(identity, user.ToRole);
-            await _userManager.RemoveFromRoleAsync(identity, user.Role);
 
             if (!r.Succeeded)
-                message = r.Errors.ToString();
+            {
+                feedback.Message = r.Errors.Select(x => x.Description).FirstOrDefault().ToString();
+                feedback.Error = true;
+            }
             else
-                message = "Role changing complete succefully";
+            {
+                feedback.Message = "Role changing complete succefully";
+                await _userManager.RemoveFromRoleAsync(identity, user.Role);
+                feedback.Error = false;
+            }
 
-            return message;
+            return feedback;
         }
 
         public async Task<string> RegisterAsync(LoginVM loginData)
